@@ -1,113 +1,55 @@
-# IT Support Lab – Active Directory & Jira
+# IT Support Lab
 
-## 📌 Overview
-This project simulates a real IT help desk environment using Active Directory and Jira Service Management.
-
-It demonstrates how user account issues are investigated, resolved, and documented in a ticketing system.
+Simulated IT support environment using **Active Directory** and **Jira** Ticketing.
 
 ---
 
-# 🔧 Scenario 1 – Sarah Jenkins (Account Disabled)
+## Scenario 1 – Sarah Jenkins (Account Disabled)
 
-## Issue
-User unable to log in despite using correct credentials.
+**Issue**  
+User unable to log in due to account being disabled.
 
-## Investigation
-- Accessed Active Directory Users and Computers  
-- Located the user account  
-- Identified the account was disabled  
+**Resolution**
+- Re-enabled the user account
+- Verified account status was active
+- Confirmed login access was restored
 
-## Resolution
-- Re-enabled the user account  
-- Verified account status was active  
-- Confirmed login access was restored  
+**Evidence**
 
-## Evidence
-
-### Active Directory View
-![AD Disabled](Sarah Jenkins AD image.png)
-
-### Account Enabled
-![AD Enabled](Sarah Jenkins AD account enabled.png)
-
-### Jira Ticket
-![Jira Ticket](Sarah Jenkins Jira image .png)
+![Sarah Jenkins - AD Disabled](Sarah%20Jenkins%20AD%20image.png)  
+![Sarah Jenkins - AD Enabled](Sarah%20Jenkins%20AD%20account%20enabled.png)  
+![Sarah Jenkins - Jira Ticket](Sarah%20Jenkins%20Jira%20image%20.png)
 
 ---
 
-# 🔧 Scenario 2 – Daniel Carter (Password Reset)
+## Scenario 2 – Daniel Carter (Password Reset)
 
-## Issue
+**Issue**  
 User unable to log in due to password issues.
 
-## Investigation
-- Accessed Active Directory  
-- Located the user account  
-- Identified password-related issue  
+**Investigation**
+- Accessed Active Directory
+- Located the user account
+- Identified password-related issue
 
-## Resolution
-- Reset the user password  
-- Verified the update  
-- Confirmed login access was restored  
+**Evidence**
 
-## Evidence
-
-### Active Directory User
-![User](Daniel Carter AD.png)
-
-### Reset Password Action
-![Reset Action](Daniel Carter AD password reset.png)
-
-### Reset Confirmation
-![Confirm](Daniel Carter AD password reset confirm.png)
-
-### Ticket Request
-![Request](Daniel Carter request.png)
-
-### Ticket Resolution
-![Done](Daniel carter jira done.png)
+![Daniel Carter - AD Account](Daniel%20Carter%20AD.png)  
+![Daniel Carter - Password Reset](Daniel%20Carter%20AD%20password%20reset.png)  
+![Daniel Carter - Password Reset Confirm](Daniel%20Carter%20AD%20password%20reset%20confirm.png)  
+![Daniel Carter - Jira Ticket](Daniel%20carter%20jira%20done.png)
 
 ---
 
-# 🔧 Scenario 3 – Emma Singh (Account Locked)
+## Scenario 3 – Emma Singh (Account Related)
 
-## Issue
-User unable to log in due to account lockout.
+**Evidence**
 
-## Investigation
-- Accessed Active Directory  
-- Located the user account  
-- Identified that the account was locked  
-
-## Resolution
-- Unlocked the account  
-- Verified account status  
-- Confirmed login access was restored  
-
-## Evidence
-
-### Active Directory View
-![Emma AD](Emma Singh AD.png)
-
-### Account Enabled
-![Emma Enabled](Emma Singh account enabled.png)
-
-### Ticket Request
-![Emma Request](Emma ticket request.png)
-
-### Ticket Resolved
-![Emma Done](Emma ticket done.png)
+![Emma Singh - AD Account](Emma%20Singh%20AD%20.png)  
+![Emma Singh - Account Enabled](Emma%20Singh%20account%20enabled.png)  
+![Emma Singh - Jira Ticket](Emma%20ticket%20done.png)
 
 ---
 
-## ✅ Skills Demonstrated
-- Active Directory user management  
-- Password resets and troubleshooting  
-- Account enabling, disabling, and unlocking  
-- Help desk ticket workflow (Jira)  
-- Investigation and resolution documentation  
-
----
-
-## 🎯 Outcome
-This project demonstrates real-world IT support processes, including diagnosing issues, applying fixes, and documenting work using a structured ticketing system.
+**Repository Purpose**  
+This repo demonstrates practical IT support workflows, troubleshooting steps, and proper documentation using screenshots from Active Directory and Jira.
