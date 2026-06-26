@@ -53,19 +53,19 @@ User unable to log in due to password issues.
 ## Evidence
 
 ### Active Directory User
-![AD User](Daniel Carter AD.png)
+![User](Daniel Carter AD.png)
 
 ### Reset Password Action
-![Reset Password](Daniel Carter AD password reset.png)
+![Reset Action](Daniel Carter AD password reset.png)
 
 ### Reset Confirmation
-![Reset Confirm](Daniel Carter AD password reset confirm.png)
+![Confirm](Daniel Carter AD password reset confirm.png)
 
 ### Ticket Request
-![Ticket Request](Daniel Carter request.png)
+![Request](Daniel Carter request.png)
 
 ### Ticket Resolution
-![Ticket Done](Daniel carter jira done.png)
+![Done](Daniel carter jira done.png)
 
 ---
 
@@ -90,13 +90,13 @@ User unable to log in due to account lockout.
 ![Emma AD](Emma Singh AD.png)
 
 ### Account Enabled
-![Account Enabled](Emma Singh account enabled.png)
+![Emma Enabled](Emma Singh account enabled.png)
 
 ### Ticket Request
-![Ticket Request](Emma ticket request.png)
+![Emma Request](Emma ticket request.png)
 
 ### Ticket Resolved
-![Ticket Done](Emma ticket done.png)
+![Emma Done](Emma ticket done.png)
 
 ---
 
