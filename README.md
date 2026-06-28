@@ -1,4 +1,4 @@
-# IT Support Lab
+# Gurtaj Deol - IT Support Lab
 
 Simulated IT support environment using **Active Directory**, **Jira Ticketing**, and **Azure Cloud Networking**.
 
