@@ -1,55 +1,63 @@
 # IT Support Lab
 
-Simulated IT support environment using **Active Directory** and **Jira** Ticketing.
+Simulated IT support environment using **Active Directory**, **Jira Ticketing**, and **Azure Cloud Networking**.
 
 ---
 
 ## Scenario 1 – Sarah Jenkins (Account Disabled)
+**Issue:** User unable to log in due to account being disabled.  
+**Resolution:** Re-enabled the user account and verified access.  
 
-**Issue**  
-User unable to log in due to account being disabled.
-
-**Resolution**
-- Re-enabled the user account
-- Verified account status was active
-- Confirmed login access was restored
-
-**Evidence**
-
-![Sarah Jenkins - AD Disabled](Sarah%20Jenkins%20AD%20image.png)  
-![Sarah Jenkins - AD Enabled](Sarah%20Jenkins%20AD%20account%20enabled.png)  
-![Sarah Jenkins - Jira Ticket](Sarah%20Jenkins%20Jira%20Image%20.png)
+**Evidence:**  
+![Sarah Jenkins AD](screenshots/Sarah%20Jenkins%20AD%20account%20enabled.png)  
+![Sarah Jenkins Jira](screenshots/Sarah%20Jenkins%20Jira%20Image%20.png)
 
 ---
 
 ## Scenario 2 – Daniel Carter (Password Reset)
+**Issue:** User unable to log in due to password issues.  
+**Investigation:** Accessed Active Directory, located account, identified password issue.  
 
-**Issue**  
-User unable to log in due to password issues.
-
-**Investigation**
-- Accessed Active Directory
-- Located the user account
-- Identified password-related issue
-
-**Evidence**
-
-![Daniel Carter - AD Account](Daniel%20Carter%20AD.png)  
-![Daniel Carter - Password Reset](Daniel%20Carter%20AD%20password%20reset.png)  
-![Daniel Carter - Password Reset Confirm](Daniel%20Carter%20AD%20password%20reset%20confirm.png)  
-![Daniel Carter - Jira Ticket](Daniel%20carter%20jira%20done.png)
+**Evidence:**  
+![Daniel Carter AD](screenshots/Daniel%20Carter%20AD.png)  
+![Daniel Carter Password Reset](screenshots/Daniel%20Carter%20AD%20password%20reset.png)  
+![Daniel Carter Jira](screenshots/Daniel%20carter%20jira%20done.png)
 
 ---
 
 ## Scenario 3 – Emma Singh (Account Related)
+**Evidence:**  
+![Emma Singh AD](screenshots/Emma%20Singh%20AD%20.png)  
+![Emma Singh Account Enabled](screenshots/Emma%20Singh%20account%20enabled.png)  
+![Emma Singh Jira](screenshots/Emma%20ticket%20done.png)
 
-**Evidence**
+---
 
-![Emma Singh - AD Account](Emma%20SIngh%20AD%20.png)  
-![Emma Singh - Account Enabled](Emma%20Singh%20account%20enabled.png)  
-![Emma Singh - Jira Ticket](Emma%20ticket%20done.png)
+## Scenario 4 – Azure VM Networking & ICMP Troubleshooting
+**Objective:** Troubleshoot connectivity between two Azure VMs in different Virtual Networks.
+
+**Steps:**
+- Created two Virtual Networks (`vm-1-vnet` and `vm-2-vnet`) and deployed VMs.
+- Initial ping test failed (Destination host unreachable).
+- Identified blocking rules in NSG and Windows Defender Firewall.
+- Added Inbound NSG rule + enabled ICMP in Windows Firewall.
+- Retest showed successful ping.
+
+**Evidence:**
+![Virtual Networks](screenshots/Both%20vnets.png)  
+![VM Creation](screenshots/Create-new-vm2.png)  
+![Ping Failure](screenshots/Ping-destination-host-unreachable.png)  
+![Successful Local Ping](screenshots/ping-local-success-remote-unreachable.png)  
+![Windows Firewall](screenshots/vm2-windows-firewall-profiles-disabled.png)  
+![NSG / Firewall Rule](screenshots/VM2_windows_firewall_block_rule..png)  
+![Successful Ping](screenshots/vm1-ping-local-ip-success.png)
+
+**Key Learnings:** Azure NSGs block ICMP by default. Both cloud-level (NSG) and OS-level firewall rules must allow traffic.
 
 ---
 
 **Repository Purpose**  
-This repository showcases practical IT support documentation, troubleshooting steps, and evidence collection using Active Directory and Jira.
+This repository showcases practical IT support documentation, troubleshooting steps, and evidence collection using Active Directory, Jira, and Azure.
+
+---
+
