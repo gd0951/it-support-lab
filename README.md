@@ -40,7 +40,7 @@ Simulated IT support environment using **Active Directory**, **Jira Ticketing**,
 **Steps:**
 - Created two Virtual Networks (`vm-1-vnet` and `vm-2-vnet`) and deployed VMs.
 - Initial ping from VM-1 to VM-2 failed ("Destination host unreachable").
-- Used `Test-NetConnection` in PowerShell to confirm port and ping issues.
+- Used `Test-NetConnection` in PowerShell to confirm connectivity issues.
 - Identified blocking rules in Network Security Group and Windows Defender Firewall.
 - Added Inbound NSG rule to allow ICMP traffic.
 - Enabled ICMP echo requests in Windows Firewall.
@@ -48,15 +48,11 @@ Simulated IT support environment using **Active Directory**, **Jira Ticketing**,
 
 **Evidence:**
 ![Virtual Networks](screenshots/Both%20vnets.png)  
-![Ping Failure](screenshots/Ping-destination-host-unreachable.png)  
-![PowerShell Test-NetConnection](screenshots/Powershell-test-netconnectionfailed.png)  
+![Ping Failure - Destination Unreachable](screenshots/Ping-destination-host-unreachable.png)  
+![PowerShell Test-NetConnection Failed](screenshots/Powershell-test-netconnectionfailed.png)  
 ![Successful Ping](screenshots/ping-local-success-remote-unreachable.png)  
-![Windows Firewall Settings](screenshots/vm2-windows-firewall-profiles-disabled.png)
+![Windows Firewall Settings](screenshots/vm2-windows-firewall-profiles-disabled.png)  
+![Successful Local Ping](screenshots/vm1-ping-local-ip-success.png)
 
 **Key Learnings:**  
-Azure NSGs block ICMP by default. Both cloud-level (NSG) and OS-level (Windows Firewall) configurations are required for connectivity. PowerShell tools like `Test-NetConnection` are valuable for diagnosing issues.
-
----
-
-**Repository Purpose**  
-This repository showcases practical IT support documentation, troubleshooting steps, and evidence collection using Active Directory, Jira, and Azure.
+Azure NSGs block ICMP by default. Both cloud-level (NSG) and OS-level (Windows Firewall) configurations are required for connectivity. PowerShell tools like `Test-NetConnection` help diagnose issues quickly.
