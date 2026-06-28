@@ -46,10 +46,7 @@ Troubleshoot an isolated multi-network topology in Microsoft Azure by identifyin
 #### 1. Topology Discovery & Blocker Analysis
 The initial architecture consisted of two distinct networks within the same resource group environment: `vm-1-vnet` and `vm-2-vnet`. Attempting to form a local backbone using standard **Azure VNet Peering** completely failed.
 
-The cloud dashboard threw an explicit red warning banner:
-> `Address space '10.0.0.0/16' overlaps... Virtual networks with overlapping address space cannot be peered.`
-
-Because both networks were provisioned using identical IP blocks, standard network routing and peering logic were broken out of the box.
+The cloud dashboard threw an explicit red warning banner showing that both networks were provisioned using identical IP blocks, breaking standard network routing and peering logic out of the box:
 
 ![01_vnet_peering_overlap_error](screenshots/vnet_peering_overlap_error.png)
 
@@ -72,14 +69,14 @@ The baseline test successfully validated local loopback functionality but yielde
 #### 4. Guest Operating System Hardening
 Rather than insecurely disabling whole firewall profiles, the target server’s **Windows Defender Firewall with Advanced Security** suite was accessed via RDP. 
 
-The specific inbound core rule **File and Printer Sharing (Echo Request - ICMPv4-In)** was updated from a hard block state over to explicitly allow secure inbound diagnostics.
+The specific inbound core rule **File and Printer Sharing (Echo Request - ICMPv4-In)** was enabled, showing the green checkmark verifying that secure inbound diagnostics are explicitly allowed.
 
 ![05_windows_firewall_rule_adjustment](screenshots/vm2-re-enable%20ICMP.png)
 
 #### 5. Verification & Resolution Proof
 A final continuous ping diagnostic loop was sent across the established network bridge. The traffic cleared both the cloud infrastructure constraints and the guest OS endpoint controls flawlessly, achieving a stable continuous connection with sub-millisecond response times and 0% packet loss.
 
-![06_successful_ping_reply](screenshots/02_delete_misconfigured_vm.png)
+![06_successful_ping_reply](screenshots/image_401e80.jpg)
 
 ---
 
