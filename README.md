@@ -28,7 +28,7 @@ Simulated IT support environment using **Active Directory**, **Jira Ticketing**,
 
 ## Scenario 3 – Emma Singh (Account Related)
 **Evidence:**  
-![Emma Singh AD](screenshots/Emma%20Singh%20AD%20.png)  
+![Emma Singh AD](screenshots/Emma-Singh-AD..png)  
 ![Emma Singh Account Enabled](screenshots/Emma%20Singh%20account%20enabled.png)  
 ![Emma Singh Jira](screenshots/Emma%20ticket%20done.png)
 
