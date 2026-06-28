@@ -22,7 +22,7 @@ Simulated IT support environment using **Active Directory**, **Jira Ticketing**,
 **Evidence:**  
 ![Daniel Carter AD](screenshots/Daniel%20Carter%20AD.png)  
 ![Password Reset](screenshots/Daniel%20Carter%20AD%20password%20reset.png)  
-![Daniel Carter Jira Ticket](screenshots/Daniel%20carter%20jira%20done.png) 
+![Daniel Carter Jira Ticket](screenshots/Daniel-Carter-Jira.png)
 
 ---
 
