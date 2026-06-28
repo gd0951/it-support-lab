@@ -29,7 +29,7 @@ Simulated IT support environment using **Active Directory**, **Jira Ticketing**,
 
 **Evidence:**
 
-![Emma Singh AD Account](screenshots/Emma%20Singh%20AD%20.png)
+![Emma Singh AD](screenshots/Emma-Singh-AD.png)
 
 ![Emma Singh Account Enabled](screenshots/Emma%20Singh%20account%20enabled.png)
 
