@@ -37,44 +37,44 @@ Simulated IT support environment using **Active Directory**, **Jira Ticketing**,
 ## Scenario 4: Azure Cross-VNet Routing Failure & Security Hardening
 
 ### 📌 Objective
-Troubleshoot an isolated multi-network topology in Microsoft Azure by identifying an IP address space overlap, re-architecting the Virtual Network layout, and adjusting Windows Defender Firewall security rules to safely handle ICMP diagnostics.
+Fix a network connection problem between two Azure Virtual Machines by resolving an IP address conflict, fixing the Virtual Network setup, and changing Windows Firewall rules to allow ping tests safely.
 
 ---
 
-### 🛠️ Step-by-Step Engineering Walkthrough
+### 🛠️ Step-by-Step Walkthrough
 
-#### 1. Topology Discovery & Blocker Analysis
-The initial architecture consisted of two distinct networks within the same resource group environment: `vm-1-vnet` and `vm-2-vnet`. Attempting to log into VM-1 and establish communication with the target machine instantly failed, returning a "Destination host unreachable" error.
+#### 1. Finding the Problem
+At first, two separate networks were created in the same resource group: `vm-1-vnet` and `vm-2-vnet`. When trying to log into VM-1 and ping the other machine, the connection failed completely with a "Destination host unreachable" error.
 
 ![01_initial_ping_failure](screenshots/Ping-destination-host-unreachable.png)
 
-Upon pivoting to the Azure portal dashboard to link the two backbones using standard **Azure VNet Peering**, the platform threw an explicit red warning banner showing that both networks were provisioned using identical IP blocks (`10.0.0.0/16`), breaking standard cloud routing logic:
+When looking at the Azure portal to connect the two networks using **VNet Peering**, a red error message appeared. It showed that both networks were using the exact same IP range (`10.0.0.0/16`), which prevents them from talking to each other:
 
 ![02_vnet_peering_overlap_error](screenshots/vnet_peering_overlap_error.png)
 
-#### 2. Environment Teardown & Reconstruction
-To resolve the structural overlap, the misconfigured target infrastructure had to be decommissioned. `VM-2` was permanently deleted along with its virtual OS storage disk to clear out the bad topology footprint.
+#### 2. Deleting and Rebuilding the Setup
+To fix this overlapping network problem, the broken setup had to be removed. `VM-2` was completely deleted along with its OS disk to clear the way for a clean install.
 
 ![03_delete_misconfigured_vm](screenshots/Delete-vm2.png)
 
-A replacement VM instance was created. During the provisioning wizard's **Networking phase**, the machine was explicitly assigned directly onto `vm-1-vnet`'s infrastructure space instead of generating an isolated network loop.
+A new virtual machine was then created. During the **Networking** step of the setup wizard, the new machine was put directly onto `vm-1-vnet` so that both machines shared a working network path.
 
 ![04_correct_vnet_provisioning](screenshots/Create-new-vm2.png)
 
-#### 3. Guest Operating System Hardening
-With both servers now attached to the same wire, the network path was established. Rather than insecurely disabling whole firewall profiles, the target server’s **Windows Defender Firewall with Advanced Security** suite was accessed via RDP. 
+#### 3. Fixing the Windows Firewall
+With both servers finally on the same network layout, the connection paths were open. Instead of unsafely turning off the entire firewall, the target server’s **Windows Defender Firewall** settings were opened using Remote Desktop (RDP). 
 
-The specific inbound core rule **File and Printer Sharing (Echo Request - ICMPv4-In)** was enabled, showing the green checkmark verifying that secure inbound diagnostics are explicitly allowed.
+The rule for **File and Printer Sharing (Echo Request - ICMPv4-In)** was turned on. The green checkmark confirms that ping requests are now safely allowed through.
 
 ![05_windows_firewall_rule_adjustment](screenshots/vm2-re-enable%20ICMP.png)
 
-#### 4. Verification & Resolution Proof
-A final diagnostic loop was sent across the established network bridge. The traffic cleared both the cloud infrastructure constraints and the guest OS endpoint controls flawlessly, achieving a stable continuous connection with sub-millisecond response times and 0% packet loss.
+#### 4. Final Testing and Proof
+A final ping test was sent from VM-1 to the new target. The traffic cleared both the Azure network layer and the internal Windows Firewall successfully, showing a perfect connection with 0% packet loss.
 
 ![06_successful_ping_reply](screenshots/vm1-ping-local-ip-success.png)
 
 ---
 
 ### 🧠 Key Learnings
-* **IP Address Allocation:** Always plan network spacing and CIDR layouts beforehand to prevent resource conflicts and expensive teardowns.
-* **Hierarchical Traffic Defense:** Traffic flow depends on a layered architecture. Connectivity must be cleanly green-lit at both the cloud fabric layer (VNets/Peering/NSGs) and the internal guest operating system tier (Windows Firewall).
+* **Plan IP Ranges Early:** Always make sure different networks use different IP ranges before deploying them so you don't have to delete and restart.
+* **Two-Layer Security:** Network traffic in the cloud has to pass two tests: the outer cloud network layer (Azure VNets and Peering) and the inner operating system layer (Windows Firewall). Both must be configured correctly for things to work.
